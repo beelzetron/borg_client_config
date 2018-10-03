@@ -1,0 +1,4 @@
+/var/home/*/.cache
+/var/home/*/.mozilla
+/var/home/lost+found
+*.pyc

@@ -1,0 +1,17 @@
+[Unit]
+Description=Borg Backup Service
+After=network-online.target
+Requires=network-online.target
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/sysconfig/borgbackup
+PassEnvironment=BORG_PASSPHRASE BORG_HOSTNAME_IS_UNIQUE
+SuccessExitStatus=2
+ExecStart=/usr/bin/borg create --stats -v --patterns-from ${PATTERN_FILE} \
+          --exclude-from ${EXCLUDE_FILE} "${REPOSITORY}::${ARCHIVE}"
+ExecStartPost=/usr/bin/borg prune --stats -v ${REPOSITORY} --prefix '{hostname}-' \
+              --keep-daily=${KEEP_DAILY} \
+              --keep-weekly=${KEEP_WEEKLY} \
+              --keep-monthly=${KEEP_MONTHLY}
+

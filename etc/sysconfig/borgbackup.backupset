@@ -1,0 +1,10 @@
+P sh
+R /
++ /boot
++ /etc
++ /var/home
++ /var/roothome
++ /var/opt
++ /var/log
++ /var/usrlocal
+- /*

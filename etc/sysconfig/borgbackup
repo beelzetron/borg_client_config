@@ -1,0 +1,10 @@
+REPOSITORY=YOUR_REPO_HERE
+ARCHIVE="{hostname}-{now:%Y-%m-%d}"
+PATTERN_FILE=/etc/sysconfig/borgbackup.backupset
+EXCLUDE_FILE=/etc/sysconfig/borgbackup.exclude
+BORG_PASSPHRASE=""
+BORG_HOSTNAME_IS_UNIQUE=""
+# Backup retention
+KEEP_DAILY=7
+KEEP_WEEKLY=4
+KEEP_MONTHLY=3

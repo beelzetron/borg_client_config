@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Borg Backup hourly
+After=network-online.target
+Wants=network-online.target
+
+[Timer]
+OnCalendar=00/2:30
+ 
+[Install]
+WantedBy=timers.target
