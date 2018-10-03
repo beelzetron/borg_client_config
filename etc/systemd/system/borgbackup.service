@@ -7,7 +7,7 @@ Requires=network-online.target
 Type=oneshot
 EnvironmentFile=/etc/sysconfig/borgbackup
 PassEnvironment=BORG_PASSPHRASE BORG_HOSTNAME_IS_UNIQUE
-SuccessExitStatus=2
+SuccessExitStatus=1
 ExecStart=/usr/bin/borg create --stats -v --patterns-from ${PATTERN_FILE} \
           --exclude-from ${EXCLUDE_FILE} "${REPOSITORY}::${ARCHIVE}"
 ExecStartPost=/usr/bin/borg prune --stats -v ${REPOSITORY} --prefix '{hostname}-' \
