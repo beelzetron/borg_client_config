@@ -1,5 +1,5 @@
 [Unit]
-Description=Run Borg Backup hourly
+Description=Run Borg Backup (every 2 hours)
 After=network-online.target
 Wants=network-online.target
 
